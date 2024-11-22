@@ -1,2 +1,7 @@
 venv/
 .vs_code/
+advent24_pytohon.egg-info/
+build/
+dist/
+__pycache__
+input.txt
