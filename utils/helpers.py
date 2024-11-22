@@ -26,8 +26,12 @@ def parse_args(args: list[str]):
 
 def read_local_input(calling_file: str) -> list[str]:
     local_input_file = _find_local_input_file(calling_file)
-    f = open(local_input_file)
-    return f.read().splitlines()
+    try:
+        f = open(local_input_file)
+        return f.read().splitlines()
+    except:
+        print(f"Unable to find or open the input file {local_input_file}")
+        exit(1)
 
 
 def _find_local_input_file(calling_file: str) -> str:
