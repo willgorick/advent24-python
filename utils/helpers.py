@@ -1,17 +1,26 @@
-import requests
+import argparse
 import os
+import requests
 
 
 def parse_args(args: list[str]):
+    parser = argparse.ArgumentParser()
     day, part, submit = None, None, False
 
-    for arg in args:
-        if arg.startswith("--day="):
-            day = arg.split("=")[1]
-        if arg.startswith("--part="):
-            part = arg.split("=")[1]
-        if arg.startswith("--submit"):
-            submit = True
+    parser.add_argument(
+        "-d", "--day", help="The day of advent to run", required=True)
+    parser.add_argument(
+        "-p", "--part", help="The part of the advent day to run", required=True)
+    parser.add_argument(
+        "-s", "--submit", help="Your answer will be submitted if this flag is set", action='store_true')
+    args = parser.parse_args()
+
+    if args.day:
+        day = args.day
+    if args.part:
+        part = args.part
+    if args.submit:
+        submit = True
 
     if day == None or part == None:
         print("Required arguments are: --day and --part")
