@@ -1,13 +1,14 @@
 
 from day1.solution import part1 as day1part1, part2 as day1part2
-from day2.solution import part1 as day2part1
+from day2.solution import part1 as day2part1, part2 as day2part2
 SOLUTIONS = {
     1: {
         1: day1part1,
         2: day1part2
     },
     2: {
-        1: day2part1
+        1: day2part1,
+        2: day2part2
     }
 }
 

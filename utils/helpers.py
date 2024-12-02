@@ -42,6 +42,12 @@ def submit_answer(answer: int, day: int, part: int) -> str:
     return resp.text
 
 
+def read_input_files(file):
+    parsed_test_input = read_local_input(file, True)
+    parsed_input = read_local_input(file, False)
+    return parsed_test_input, parsed_input
+
+
 def read_local_input(calling_file: str, test: bool) -> list[str]:
     local_input_file = _find_local_input_file(calling_file, test)
     try:

@@ -1,17 +1,11 @@
-from utils.helpers import read_local_input, submit_answer
+from utils.helpers import read_input_files, submit_answer
 from heapq import heappop, heappush
 from collections import defaultdict
 
 
-def read_input_files():
-    parsed_test_input = read_local_input(__file__, True)
-    parsed_input = read_local_input(__file__, False)
-    return parsed_test_input, parsed_input
-
-
 def part1(submit: bool):
     print("day 1 part 1")
-    test_input, input = read_input_files()
+    test_input, input = read_input_files(__file__)
     test_dist = _heapify_and_calculate_distance(test_input)
     dist = _heapify_and_calculate_distance(input)
     print(f"Test: {test_dist}")
@@ -35,7 +29,7 @@ def _heapify_and_calculate_distance(input):
 
 def part2(submit: bool):
     print("day 2 part 2")
-    test_input, input = read_input_files()
+    test_input, input = read_input_files(__file__)
     test_score = _calculate_similarity_score(test_input)
     score = _calculate_similarity_score(input)
     print(f"Test: {test_score}")
