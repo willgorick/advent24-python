@@ -4,9 +4,9 @@ from utils.find_solution_function import find_solution_function
 
 
 def main():
-    day, part = parse_args(sys.argv)
+    day, part, submit = parse_args(sys.argv)
     solution_function = find_solution_function(day, part)
-    solution_function()
+    solution_function(submit)
 
 
 if __name__ == "__main__":
