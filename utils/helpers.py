@@ -51,14 +51,14 @@ def submit_answer(answer: int, day: int, part: int) -> str:
     return resp.text
 
 
-def read_input_files(file):
-    parsed_test_input = read_local_input(file, True)
-    parsed_input = read_local_input(file, False)
+def read_input_files(file: str, test_file: str = "test.txt"):
+    parsed_test_input = read_local_input(file, test_file)
+    parsed_input = read_local_input(file)
     return parsed_test_input, parsed_input
 
 
-def read_local_input(calling_file: str, test: bool) -> list[str]:
-    local_input_file = _find_local_input_file(calling_file, test)
+def read_local_input(calling_file: str, test_file=None) -> list[str]:
+    local_input_file = _find_local_input_file(calling_file, test_file)
     try:
         f = open(local_input_file)
         return f.read().splitlines()
@@ -67,7 +67,7 @@ def read_local_input(calling_file: str, test: bool) -> list[str]:
         exit(1)
 
 
-def _find_local_input_file(calling_file: str, test: bool) -> str:
+def _find_local_input_file(calling_file: str, test_file=None) -> str:
     file_path_list = calling_file.split('/')
-    file_path_list[-1] = 'test.txt' if test else 'input.txt'
+    file_path_list[-1] = test_file if test_file else 'input.txt'
     return "/".join(file_path_list)
