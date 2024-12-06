@@ -10,6 +10,7 @@ def part1(submit: bool):
     # print(f"Result: {res}")
     # if submit:
     #     resp = submit_answer(res, 0, 1)
+    #     print(resp)
 
 
 def part2(submit: bool):
@@ -21,6 +22,7 @@ def part2(submit: bool):
     # print(f"Result: {res}")
     # if submit:
     #     resp = submit_answer(res, 0, 2)
+    #     print(resp)
 
 
 def _solve1(input):
