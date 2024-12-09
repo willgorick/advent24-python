@@ -27,7 +27,6 @@ def part1(submit: bool):
         print(resp)
 
 
-# for ƒree space blocks keep a map of free space block size to a heap of indices (where the blocks of memory of that size start).  When you fill each block heappop that index from the list (so the next lowest index is next), and then heappush the difference between the free space block size and the file block size
 def part2(submit: bool):
     print("day 9 part 2")
     test_input, input = read_input_files(__file__)
@@ -95,18 +94,19 @@ def _try_to_move_chunks(l: DoublyLinkedListNode, r: DoublyLinkedListNode):
     head = l
     swapped_set = set()
     while r:
-        # unable to perform a swap, reset l and shift to next earlier block for r
+        # unable to perform a swap for the memory block at 4,
+        # reset l and shift to next earlier block for r
         if not l or r.file_index in swapped_set or r.start_index < l.start_index:
             l = head
             r = r.prev
             continue
 
-        # find the next file
+        # only interested in swapping file blocks
         if not r.is_file:
             r = r.prev
             continue
 
-        # can't move to a block that is already a file
+        # can only swap file block with empty block
         # can't swap the file r to empty block l if l is smaller
         if l.is_file or l.size < r.size:
             l = l.next
@@ -126,6 +126,7 @@ def _try_to_move_chunks(l: DoublyLinkedListNode, r: DoublyLinkedListNode):
             l.file_index, r.file_index = r.file_index, l.file_index
             # decrease the size of the new l block to the r block's size
             l.size = r.size
+            # create new empty block of size difference between l and r
             new_block = DoublyLinkedListNode(
                 False, l.start_index+l.size, size_diff, -1)
             l_next = l.next
