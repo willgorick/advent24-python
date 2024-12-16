@@ -11,6 +11,9 @@ from day9.solution import part1 as day9part1, part2 as day9part2
 from day10.solution import part1 as day10part1, part2 as day10part2
 from day11.solution import part1 as day11part1, part2 as day11part2
 from day12.solution import part1 as day12part1, part2 as day12part2
+from day13.solution import part1 as day13part1, part2 as day13part2
+from day14.solution import part1 as day14part1, part2 as day14part2
+from day15.solution import part1 as day15part1, part2 as day15part2
 
 SOLUTIONS = {
     1: {
@@ -60,6 +63,18 @@ SOLUTIONS = {
     12: {
         1: day12part1,
         2: day12part2
+    },
+    13: {
+        1: day13part1,
+        2: day13part2
+    },
+    14: {
+        1: day14part1,
+        2: day14part2
+    },
+    15: {
+        1: day15part1,
+        2: day15part2
     }
 }
 
