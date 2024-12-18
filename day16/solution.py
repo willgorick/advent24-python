@@ -93,7 +93,7 @@ def _bfs(start, grid):
 
 def _construct_grid(input):
     grid = []
-    start, end = None, None
+    start = None
     for i in range(len(input)):
         row = []
         for j in range(len(input[0])):
