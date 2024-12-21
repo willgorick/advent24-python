@@ -24,9 +24,9 @@ def part2(submit: bool):
     solution = Solution(input)
     res = solution._solve2()
     print(f"Result: {res}")
-    # if submit:
-    #     resp = submit_answer(res, 19, 2)
-    #     print(resp)
+    if submit:
+        resp = submit_answer(res, 19, 2)
+        print(resp)
 
 class Solution:
     def __init__(self, input):
